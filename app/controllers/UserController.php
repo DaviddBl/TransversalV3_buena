@@ -1,8 +1,10 @@
+<!-- //REGISTER CONTROLLER -->
+
 <?php
 //No funciona si ponemos require(config.php)
-require __DIR__ . '/../config.php';
-
+require_once __DIR__ . '/../config.php';
 session_start();
+
 if (isset($_POST['register'])) {
   $nombre = $_POST['nombre'];
   $correo = $_POST['correo_electronico'];
@@ -19,12 +21,10 @@ if (isset($_POST['register'])) {
     header("Location: ../views/user/register.php?error=invalidmail");
     exit();
   } else {
-
-    $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
     // Consulta para insertar el usuario en la base de datos
     $sql = "INSERT INTO usuarios (nombre, correo_electronico, contrasena, id_rol) VALUES (?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sssi", $nombre, $correo, $contrasena_encriptada, $rol);
+    mysqli_stmt_bind_param($stmt, "sssi", $nombre, $correo, $contrasena, $rol);
     mysqli_stmt_execute($stmt);
     session_start();
     $_SESSION['id_usuario'] = $id_usuario;

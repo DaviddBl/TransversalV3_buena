@@ -13,6 +13,7 @@ if (isset($_POST['login'])) {
         header("Location: ../views/user/login.php?error=emptyfields");
         exit();
     } else {
+        
         // Consulta para buscar el usuario en la base de datos
         $sql = "SELECT id_usuario, nombre, id_rol FROM usuarios WHERE correo_electronico = ? AND contrasena = ?";
         $stmt = mysqli_prepare($conn, $sql);
