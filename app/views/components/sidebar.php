@@ -1,19 +1,18 @@
-<?php
-	// Contenido del sidebar
-	echo '<h2>Categorías</h2>';
-	echo '<ul>';
+<div class="sidebar">
+	<h2 class="sidebar-title">Categorías</h2>
+	<ul class="sidebar-list">
+		<?php
+		// Array con los nombres de las categorías y sus enlaces correspondientes
+		$sideRoutes = array(
+			'Eventos' => '../event/list.php',
+			'Mis Eventos' => '../user/listEventsPromotor.php',
+			'Crear Evento' => '../user/createEvent.php',
+		);
 
-	// Array con los nombres de las categorías y sus enlaces correspondientes
-	$categorias = array(
-		'Categoría 1' => '#',
-		'Categoría 2' => '#',
-		'Categoría 3' => '#'
-	);
-
-	// Generar la lista de enlaces utilizando el array
-	foreach ($categorias as $nombre => $enlace) {
-		echo '<li><a href="' . $enlace . '">' . $nombre . '</a></li>';
-	}
-
-	echo '</ul>';
-?>
+		// Generar la lista de enlaces utilizando el array
+		foreach ($sideRoutes as $nombre => $enlace) {
+			echo '<li><a href="' . $enlace . '">' . $nombre . '</a></li>';
+		}
+		?>
+	</ul>
+</div>

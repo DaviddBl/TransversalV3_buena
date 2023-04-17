@@ -13,23 +13,26 @@ session_start();
 </head>
 
 <body>
-    <div class="navbar">
-        <?php include '../components/navbar.php'; ?>
+        <div class="navbar">
+            <?php include '../components/navbar.php'; ?>
+        </div>
+    <div>
+        <div class="sidebar">
+            <?php include '../components/sidebar.php'; ?>
+        </div>
     </div>
-    <div class="sidebar">
-        <?php include '../components/sidebar.php'; ?>
-    </div>
-    <div class="main-content">
-        <!-- Aquí va el contenido principal de tu sitio -->
-        <h1>Dashboard</h1>
-        <h1>Bienvenido al dashboard, usuario <?php echo $_SESSION['id_usuario']; ?></h1>
-        <h1>Bienvenido al dashboard, usuario <?php echo $_SESSION['nombre']; ?></h1>
-        <h1>Bienvenido al dashboard, usuario <?php echo $_SESSION['correo_electronico']; ?></h1>
+    <div>
+        <div class="main-content">
+            <h1>Dashboard</h1>
+            <h1>Bienvenido al dashboard, usuario <?php echo $_SESSION['id_usuario']; ?></h1>
+            <h1>Bienvenido al dashboard, usuario <?php echo $_SESSION['nombre']; ?></h1>
+            <h1>Bienvenido al dashboard, usuario <?php echo $_SESSION['correo_electronico']; ?></h1>
+            <form action="../../controllers/LogoutController.php" method="post">
+                <button type="submit" name="logout">Cerrar sesión</button>
+            </form>
+        </div>
     </div>
     
-    <form action="../../controllers/LogoutController.php" method="post">
-        <button type="submit" name="logout">Cerrar sesión</button>
-    </form>
 
 </body>
 

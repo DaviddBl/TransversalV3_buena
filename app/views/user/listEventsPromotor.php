@@ -21,8 +21,7 @@ session_start();
         </div>
     </div>
     <div class="main-content">
-        <h1>Form crear evento</h1>
-
+        <h1>Event List Admin</h1>
     </div>
 
 </body>
